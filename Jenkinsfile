@@ -15,6 +15,12 @@ pipeline {
             }
         }
 
+        stage('SonarQube Scan') {
+            steps {
+                sh 'sonar-scanner'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t camp-app .'
