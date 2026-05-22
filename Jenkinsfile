@@ -38,5 +38,11 @@ pipeline {
                 sh 'docker run -d -p 3000:3000 camp-app'
             }
         }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh 'kubectl apply -f Manifests/'
+            }
+        }
     }
 }
