@@ -14,6 +14,12 @@ pipeline {
                 sh 'npm install'
             }
         }
+        
+        stage('OWASP Dependency Check') {
+            steps {
+                sh 'dependency-check.sh --scan .'
+            }
+        }
 
         stage('SonarQube Scan') {
             steps {
